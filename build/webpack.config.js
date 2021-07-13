@@ -17,6 +17,12 @@ module.exports = {
         path: path.resolve(rootDir, 'dist'),
         clean: true, // 清空打包旧文件
     },
+    resolve: {
+        alias: {
+            '@': path.resolve(rootDir, 'src')
+        },
+        extensions: ['.js', '.jsx'],
+    },
     module: {
         rules: [
             {
@@ -31,7 +37,15 @@ module.exports = {
                     MiniCssExtractPlugin.loader,
                     'thread-loader',
                     'css-loader',
-                    'less-loader',
+                    {
+                        loader: 'less-loader',
+                        options: {
+                            modifyVars: {
+                                'primary-color': 'red',
+                            },
+                            javascriptEnabled: true,
+                        }
+                    },
                     {
                         loader: 'postcss-loader',
                         options: {
@@ -43,7 +57,7 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(ico|png|jpe?g|gif)$/,
+                test: /\.(ico|png|jpe?g|gif|webp)$/,
                 use: [
                     {
                         loader: 'file-loader', // 路径返回

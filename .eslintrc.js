@@ -253,7 +253,7 @@ module.exports = {
         // 强制在块之前使用一致的空格
         'space-before-blocks': [2, 'always'],
         // 强制在 function的左括号之前使用一致的空格
-        'space-before-function-paren': [2, 'always'],
+        'space-before-function-paren': [0, 'always'],
         // 强制在圆括号内使用一致的空格
         'space-in-parens': [2, 'never'],
         // 要求操作符周围有空格
@@ -287,7 +287,7 @@ module.exports = {
         // 要求箭头函数体使用大括号
         // 'arrow-body-style': 2,
         // 要求箭头函数的参数使用圆括号
-        'arrow-parens': 2,
+        'arrow-parens': 0,
         'arrow-spacing': [
             2,
             {
