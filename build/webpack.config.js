@@ -17,6 +17,12 @@ module.exports = {
         path: path.resolve(rootDir, 'dist'),
         clean: true, // 清空打包旧文件
     },
+    resolve: {
+        alias: {
+            '@': path.resolve(rootDir, 'src')
+        },
+        extensions: ['.js', '.jsx'],
+    },
     module: {
         rules: [
             {

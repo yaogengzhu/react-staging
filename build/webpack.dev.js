@@ -8,9 +8,9 @@ module.exports = merge(webpacBaseConfig, {
         type: 'memory',
     },
     devServer: {
-        port: 5000,
+        port: 8000,
         hot: true,
-        open: true,
+        // open: true,
         stats: 'errors-only',
         compress: true,
     },
