@@ -26,7 +26,9 @@ class Request {
             method: 'get',
             data: data.params
         }
-        return Request.getData(Object.assign(axiosConfig, serverCofig))
+        // console.log(Request)
+        console.log(data, '??')
+        return Request.getData(Object.assign({}, axiosConfig, serverCofig))
     }
 }
 

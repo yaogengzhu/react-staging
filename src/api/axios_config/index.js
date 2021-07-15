@@ -7,7 +7,8 @@ export default {
 
     // `baseURL` 将自动加在 `url` 前面，除非 `url` 是一个绝对 URL。
     // 它可以通过设置一个 `baseURL` 便于为 axios 实例的方法传递相对 URL
-    baseURL: 'https://yaogeng.top/',
+    // baseURL: 'https://yaogeng.top',
+    // baseURL: 'http://localhost:8000/',
 
     // `transformRequest` 允许在向服务器发送前，修改请求数据
     // 只能用在 'PUT', 'POST' 和 'PATCH' 这几个请求方法
@@ -15,9 +16,10 @@ export default {
     transformRequest: [function (data) {
         // 对 data 进行任意转换处理
         return data;
-    }, function() {
+    }, function(err) {
         // 错误的处理情况‘
         console.log('发送请求失败')
+        return Promise.reject(err)
     }],
 
     // `transformResponse` 在传递给 then/catch 前，允许修改响应数据
@@ -27,16 +29,17 @@ export default {
     }, function(err) {
         // 对错误代码进行处理
         console.log(err)
+        return Promise.reject(err)
     }],
 
     // `headers` 是即将被发送的自定义请求头
-    headers: {'X-Requested-With': 'XMLHttpRequest'},
+    headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+        'Access-Control-Allow-Origin': '*',
+    },
 
     // `params` 是即将与请求一起发送的 URL 参数
     // 必须是一个无格式对象(plain object)或 URLSearchParams 对象
-    params: {
-        ID: 12345
-    },
 
     // `paramsSerializer` 是一个负责 `params` 序列化的函数
     // (e.g. https://www.npmjs.com/package/qs, http://api.jquery.com/jquery.param/)
@@ -50,23 +53,16 @@ export default {
     // - string, plain object, ArrayBuffer, ArrayBufferView, URLSearchParams
     // - 浏览器专属：FormData, File, Blob
     // - Node 专属： Stream
-    data: {
-        firstName: 'Fred'
-    },
 
     // `timeout` 指定请求超时的毫秒数(0 表示无超时时间)
     // 如果请求话费了超过 `timeout` 的时间，请求将被中断
-    timeout: 1000,
+    timeout: 20000,
 
     // `withCredentials` 表示跨域请求时是否需要使用凭证
     withCredentials: false, // default
 
     // `adapter` 允许自定义处理请求，以使测试更轻松
     // 返回一个 promise 并应用一个有效的响应 (查阅 [response docs](#response-api)).
-    adapter: function () {
-
-        /* ... */
-    },
 
     // `auth` 表示应该使用 HTTP 基础验证，并提供凭据
     // 这将设置一个 `Authorization` 头，覆写掉现有的任意使用 `headers` 设置的自定义 `Authorization`头

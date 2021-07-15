@@ -8,15 +8,19 @@ module.exports = merge(webpacBaseConfig, {
         type: 'memory',
     },
     devServer: {
+        // host: '0.0.0.0',
         port: 8000,
         hot: true,
         // open: true,
         stats: 'errors-only',
+        // disableHostCheck: true,
         historyApiFallback: true, // 处理BowerRouter
         compress: true,
         proxy: {
-            '': {
-                target: 'https://yaogeng.top'
+            '/api': {
+                target: 'https://yaogeng.top',
+                pathRewrite: { '^/api': '' },
+                changeOrigin: true
             }
         }
     },

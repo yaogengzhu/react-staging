@@ -5,7 +5,7 @@ const Home = () => {
 
     const getSonglist = () => {
         $request.get({
-            url: '/comment/music?id=186016&limit=1'
+            url: '/api/search?keywords=111'
         })
     }
 
