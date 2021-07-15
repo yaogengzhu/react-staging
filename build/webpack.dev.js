@@ -14,5 +14,10 @@ module.exports = merge(webpacBaseConfig, {
         stats: 'errors-only',
         historyApiFallback: true, // 处理BowerRouter
         compress: true,
+        proxy: {
+            '': {
+                target: 'https://yaogeng.top'
+            }
+        }
     },
 })
