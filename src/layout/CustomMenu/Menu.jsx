@@ -1,11 +1,14 @@
 import React from 'react'
 import { Menu } from 'antd'
-import { BrowserRouter as Router, Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import menuList from './config'
 
 const { SubMenu } = Menu
 const CustomMenu = () => {
+    const history = useHistory()
+    const { location: { pathname } } = history
+    console.log(history )
     const handMenu = (menuList) => {
         return menuList.map((item) => {
             if (item.children) {
@@ -27,8 +30,8 @@ const CustomMenu = () => {
     }
 
     return (
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-            <Router>{handMenu(menuList)}</Router>
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={[pathname]}>
+            {handMenu(menuList)}
         </Menu>
     )
 }

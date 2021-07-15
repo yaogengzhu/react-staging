@@ -1,24 +1,14 @@
-// import Loadable from 'react-loadable';
-
+import Coupon from '@/views/Coupon/Coupon'
+import Home from '@/views/Home/Home'
 const routes = [
     {
-        path: '/sandwiches',
-        component: ''
+        path: '/home',
+        component: Home
     },
     {
-        path: '/tacos',
-        component: '',
-        routes: [
-            {
-                path: '/tacos/bus',
-                component: ''
-            },
-            {
-                path: '/tacos/cart',
-                component: ''
-            }
-        ]
+        path: '/coupon',
+        component: Coupon
     }
-];
+]
 
 export default routes

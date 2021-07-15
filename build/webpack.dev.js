@@ -12,6 +12,7 @@ module.exports = merge(webpacBaseConfig, {
         hot: true,
         // open: true,
         stats: 'errors-only',
+        historyApiFallback: true, // 处理BowerRouter
         compress: true,
     },
 })

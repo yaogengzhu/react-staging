@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import 'antd/dist/antd.less'
-import Home from '@/Home/index'
+import BasicLayout from './layout'
 
 const App = () => {
-    return <Home />
+    return <BasicLayout />
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))
