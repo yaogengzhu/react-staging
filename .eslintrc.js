@@ -388,7 +388,7 @@ module.exports = {
         // 为React组件强制执行ES5或ES6类
         'react/prefer-es6-class': 2,
         // 防止在React组件定义中丢失props验证
-        'react/prop-types': 1,
+        'react/prop-types': 0,
         // 使用JSX时防止丢失React
         'react/react-in-jsx-scope': 2,
         // 防止没有children的组件的额外结束标签
