@@ -18,18 +18,22 @@ export default {
         return data;
     }, function(err) {
         // 错误的处理情况‘
-        console.log('发送请求失败')
-        return Promise.reject(err)
+        //
+        return Promise.resolve(err)
     }],
 
     // `transformResponse` 在传递给 then/catch 前，允许修改响应数据
     transformResponse: [function (data) {
         // 对 data 进行任意转换处理
         return data;
-    }, function(err) {
+    }, function(data) {
         // 对错误代码进行处理
-        console.log(err)
-        return Promise.reject(err)
+        console.log(data)
+        try {
+            return Promise.resolve(data)
+        } catch (e) {
+            // return Promise.reject(err)
+        }
     }],
 
     // `headers` 是即将被发送的自定义请求头
