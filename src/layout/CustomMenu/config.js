@@ -1,4 +1,4 @@
-import { MailOutlined, CalendarOutlined, AppstoreOutlined, SettingOutlined, LinkOutlined } from '@ant-design/icons'
+import { MailOutlined, CalendarOutlined } from '@ant-design/icons'
 
 const menuList = [
     {
