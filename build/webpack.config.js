@@ -41,7 +41,7 @@ module.exports = {
                         loader: 'less-loader',
                         options: {
                             modifyVars: {
-                                'primary-color': 'red',
+                                'primary-color': '#1781b5',
                             },
                             javascriptEnabled: true,
                         }
@@ -104,4 +104,9 @@ module.exports = {
             'process.env': JSON.stringify(dotenv.config().parsed), // it will automatically pick up key values from .env file
         }),
     ],
+    // cdn方式引入
+    externals: {
+        react: 'React',
+        'react-dom': 'ReactDOM',
+    }
 }

@@ -1,11 +1,15 @@
+import { MailOutlined, CalendarOutlined, AppstoreOutlined, SettingOutlined, LinkOutlined } from '@ant-design/icons'
+
 const menuList = [
     {
         path: '/home',
         name: '首页',
+        icon: MailOutlined
     },
     {
         path: '/coupon',
-        name: '优惠券',
+        name: '通用',
+        icon: CalendarOutlined
     }
 ]
 

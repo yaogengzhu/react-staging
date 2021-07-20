@@ -1,14 +1,14 @@
 import React from 'react'
 import { Menu } from 'antd'
 import { Link, useHistory } from 'react-router-dom'
-
 import menuList from './config'
 
 const { SubMenu } = Menu
 const CustomMenu = () => {
     const history = useHistory()
-    const { location: { pathname } } = history
-    console.log(history )
+    const {
+        location: { pathname },
+    } = history
     const handMenu = (menuList) => {
         return menuList.map((item) => {
             if (item.children) {
@@ -19,7 +19,7 @@ const CustomMenu = () => {
                 )
             } else {
                 return (
-                    <Menu.Item key={item.path}>
+                    <Menu.Item key={item.path} icon={<item.icon />}>
                         <Link to={item.path}>
                             <span>{item.name}</span>
                         </Link>

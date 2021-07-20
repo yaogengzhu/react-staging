@@ -8,7 +8,7 @@ const routes = [
     {
         path: '/coupon',
         component: Coupon
-    }
+    },
 ]
 
 export default routes
