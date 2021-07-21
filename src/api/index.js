@@ -1,7 +1,12 @@
 import axiosConfig from './axios_config/index'
 import axios from 'axios'
+const CancelToken = axios.CancelToken;
 
 class Request {
+    constructor() {
+        this.cancel = null
+    }
+
     static getData(config) {
 
         const instance = axios.create(config)
@@ -15,7 +20,11 @@ class Request {
         const serverCofig = {
             url: data.url,
             method: 'post',
-            data: data.params
+            data: data.params,
+            cancelToken: new CancelToken((c) =>  {
+                // executor 函数接收一个 cancel 函数作为参数
+                this.cancel = c;
+            })
         }
         return Request.getData(Object.assign(axiosConfig, serverCofig))
     }
@@ -24,11 +33,17 @@ class Request {
         const serverCofig = {
             url: data.url,
             method: 'get',
-            data: data.params
+            data: data.params,
+            cancelToken: new CancelToken((c) => {
+                // executor 函数接收一个 cancel 函数作为参数
+                this.cancel = c;
+            })
         }
-        // console.log(Request)
-        console.log(data, '??')
         return Request.getData(Object.assign({}, axiosConfig, serverCofig))
+    }
+
+    cancelToken() {
+        this.cancel()
     }
 }
 
