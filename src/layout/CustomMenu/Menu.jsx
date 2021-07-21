@@ -7,8 +7,10 @@ import menuList from './config'
 const { SubMenu } = Menu
 const CustomMenu = () => {
     const history = useHistory()
-    const { location: { pathname } } = history
-    console.log(history )
+    const {
+        location: { pathname },
+    } = history
+    console.log(history)
     const handMenu = (menuList) => {
         return menuList.map((item) => {
             if (item.children) {
