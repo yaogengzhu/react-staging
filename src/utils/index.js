@@ -15,7 +15,6 @@ export function previewImg(file) {
         if (!file.type) {
             return
         }
-        //
         const canvas = document.createElement('canvas')
         canvas.width = MEASURE_SIZE
         canvas.height = MEASURE_SIZE
@@ -43,6 +42,6 @@ export function previewImg(file) {
             document.body.removeChild(canvas)
             resolve(dataURL)
         }
-        img.src = window.URL.createObjectURL(File)
+        img.src = window.URL.createObjectURL(file)
     })
 }

@@ -72,5 +72,17 @@
         "webpack": "^5.44.0",
         "webpack-dev-server": "^3.11.2",
         "webpack-merge": "^5.8.0"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
     }
 }

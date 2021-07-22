@@ -10,7 +10,7 @@ const rootDir = process.cwd()
 
 module.exports = {
     mode: 'none',
-    target: 'web',
+    target: 'web', // 默认为web
     entry: path.resolve(rootDir, 'src/index.jsx'),
     output: {
         filename: '[name][contenthash:4].js',
@@ -44,6 +44,7 @@ module.exports = {
                                 'primary-color': '#1781b5',
                             },
                             javascriptEnabled: true,
+                            paths: [path.resolve(rootDir, 'node_modules')], // 解决编译速度极慢
                         }
                     },
                     {

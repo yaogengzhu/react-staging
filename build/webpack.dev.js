@@ -8,16 +8,19 @@ module.exports = merge(webpacBaseConfig, {
     cache: {
         type: 'memory',
     },
+    performance: {
+        hints: 'warning',
+    },
     devServer: {
         port: 8000,
-        stats: 'errors-only',
+        stats: 'normal',
         historyApiFallback: true, // 处理BowerRouter
         compress: true,
     },
-
     plugins: [
         new webpack.HotModuleReplacementPlugin({
             // Options...
         }),
+        new webpack.ProgressPlugin({}),
     ],
 })
