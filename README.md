@@ -1,11 +1,11 @@
 # 基于webpack5.x 实现一套脚手架工具
 
-
 ## 技术框架
 - [x] react
 - [x] react-dom
 - [x] react-router-dom
 - [x] less
+- [x] mobx
 
 ## ui框架
 - [x] antd
@@ -20,7 +20,7 @@
 
 
 
-### webpack配置-遇到的一些问题
+### webpack配置-遇到的一些问题以及优化
 
 **Q 解决hashRouter 和BowserRouter**的问题
 ```js
@@ -47,4 +47,10 @@ devServer: {
     }
 }
 ...
+```
+
+**Q 优化webpack  Server服务**
+具体文件在server目录下
+```js
+
 ```
