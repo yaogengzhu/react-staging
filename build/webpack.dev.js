@@ -6,14 +6,15 @@ module.exports = merge(webpacBaseConfig, {
     mode: 'development',
     devtool: 'eval-cheap-module-source-map', // 5.x
     cache: {
-        type: 'memory',
+        type: 'filesystem',
     },
     devServer: {
-        // host: '0.0.0.0',
+        host: '0.0.0.0',
         port: 8000,
         hot: true,
-        // open: true,
+        open: true,
         stats: 'errors-only',
+        useLocalIp: true,
         // disableHostCheck: true,
         historyApiFallback: true, // 处理BowerRouter
         compress: true,
