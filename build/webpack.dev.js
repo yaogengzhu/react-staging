@@ -8,14 +8,22 @@ module.exports = merge(webpacBaseConfig, {
     cache: {
         type: 'memory',
     },
-    performance: {
-        hints: 'warning',
-    },
     devServer: {
+        // host: '0.0.0.0',
         port: 8000,
-        stats: 'normal',
+        hot: true,
+        // open: true,
+        stats: 'errors-only',
+        // disableHostCheck: true,
         historyApiFallback: true, // 处理BowerRouter
         compress: true,
+        proxy: {
+            '/api': {
+                target: 'https://yaogeng.top',
+                pathRewrite: { '^/api': '' },
+                changeOrigin: true
+            }
+        }
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin({
