@@ -1,8 +1,10 @@
 import React from 'react'
-
+import Chart from './modules/Chart'
 const Coupon = () => {
     return (
-        <div>尼玛 我是优惠券</div>
+        <div>
+            <Chart />
+        </div>
     )
 }
 

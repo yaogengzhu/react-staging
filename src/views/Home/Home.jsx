@@ -1,19 +1,13 @@
-import $request from '@/api'
-import React, { useEffect } from 'react'
+import React from 'react'
+import Banner from './modules/Banner/Bannner'
+import UploadAvatar from './modules/UploadAvatar/UploadAvatar'
 
 const Home = () => {
-    const getSonglist = () => {
-        $request.get({
-            url: '/api/search?keywords=111',
-        })
-    }
-
-    useEffect(() => {
-        getSonglist()
-    }, [])
     return (
         <div>
-            <div>heh</div>
+            <Banner />
+            <h2>图片上传</h2>
+            <UploadAvatar />
         </div>
     )
 }

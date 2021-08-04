@@ -1,5 +1,6 @@
 const webpacBaseConfig = require('./webpack.config')
 const { merge } = require('webpack-merge') // 5.x
+const webpack = require('webpack')
 
 module.exports = merge(webpacBaseConfig, {
     mode: 'development',
@@ -24,4 +25,10 @@ module.exports = merge(webpacBaseConfig, {
             }
         }
     },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin({
+            // Options...
+        }),
+        new webpack.ProgressPlugin({}),
+    ],
 })
