@@ -8,7 +8,7 @@ const RouerComponent = () => {
             {routes.map((route, i) => (
                 <RouteWithSubRoutes key={i} {...route} />
             ))}
-            <Redirect to="/home"></Redirect>
+            <Redirect path='/' to="/home"></Redirect>
         </Switch>
     )
 }
