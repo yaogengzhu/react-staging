@@ -7,7 +7,7 @@ const menuList = [
         icon: MailOutlined
     },
     {
-        path: '/coupon',
+        path: '/universal',
         name: '通用',
         icon: CalendarOutlined
     }

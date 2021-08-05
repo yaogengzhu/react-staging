@@ -9,9 +9,9 @@ const routes = [
         })
     },
     {
-        path: '/coupon',
+        path: '/universal',
         component: Loadable({
-            loader: () => import('@/views/Coupon/Coupon'),
+            loader: () => import('@/views/Universal/Universal'),
             loading: Loading,
         })
     }

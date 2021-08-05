@@ -1,6 +1,6 @@
 import React from 'react'
 import Chart from './modules/Chart'
-const Coupon = () => {
+const Universal = () => {
     return (
         <div>
             <Chart />
@@ -8,4 +8,4 @@ const Coupon = () => {
     )
 }
 
-export default Coupon
+export default Universal
