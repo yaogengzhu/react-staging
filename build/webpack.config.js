@@ -13,6 +13,7 @@ module.exports = {
   mode: 'none',
   target: 'web',
   entry: {
+    index: path.resolve(rootDir, 'template/js/index.js'),
     app: path.resolve(rootDir, 'src/index.js')
   },
   output: {

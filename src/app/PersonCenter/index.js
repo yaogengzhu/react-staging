@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.less';
-import Tabs from '../../components/Tabs/Tabs';
+import Tabs from '../../components/Tabs';
 
 const classPrefix = 'bnq-personCenter';
 const PersonCenter = () => {
