@@ -389,7 +389,7 @@ module.exports = {
     // 防止在React组件定义中丢失props验证
     'react/prop-types': 0,
     // 使用JSX时防止丢失React
-    'react/react-in-jsx-scope': 2,
+    'react/react-in-jsx-scope': 0,
     // 防止没有children的组件的额外结束标签
     'react/self-closing-comp': 0,
     // 禁止不必要的bool转换
