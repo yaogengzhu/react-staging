@@ -4,7 +4,7 @@ export default [
     exact: true,
     text: '首页',
     page: () => {
-      return import('../app/Home');
+      return import(/* webpackChunkName: "Home" */ '../app/Home');
     },
   },
   {
@@ -12,7 +12,7 @@ export default [
     exact: true,
     text: '列表',
     page: () => {
-      return import('../app/Todo');
+      return import(/* webpackChunkName: "Todo" */  '../app/Todo');
     },
   },
   {
@@ -20,7 +20,7 @@ export default [
     exact: true,
     text: '信息',
     page: () => {
-      return import('../app/Message');
+      return import(/* webpackChunkName: "Message" */ '../app/Message');
     },
   },
   {
@@ -28,7 +28,7 @@ export default [
     exact: true,
     text: '个人中心',
     page: () => {
-      return import('../app/PersonCenter');
+      return import(/* webpackChunkName: "PersonCenter" */ '../app/PersonCenter');
     },
   },
 ];

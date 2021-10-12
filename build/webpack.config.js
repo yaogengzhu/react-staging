@@ -17,7 +17,7 @@ module.exports = {
     app: path.resolve(rootDir, 'src/index.js')
   },
   output: {
-    filename: '[name].[chunkhash:4].js',
+    filename: '[name].[contenthash:4].js',
     path: path.resolve(rootDir, 'public'),
     clean: true, // 清空打包旧文件
   },
@@ -49,15 +49,9 @@ module.exports = {
         test: /\.css$/i,
         use: [
           MiniCssExtractPlugin.loader,
-          'css-loader',
           {
-            loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: ['autoprefixer'],
-              },
-            },
-          },
+            loader: 'css-loader',
+          }
         ]
       },
       {
@@ -70,16 +64,20 @@ module.exports = {
       },
       {
         test: /\.(ico|png|jpe?g|gif|svg)$/,
-        use: [
-          {
-            loader: 'file-loader', // 路径返回
-            options: {
-              name: '[name].[ext]',
-              outputPath: './image',
-              limit: 1024 * 10,
-            },
-          },
-        ],
+        type: 'asset/resource',
+        generator: {
+          filename: 'image/[hash:4].[name][ext]',
+        },
+        // use: [
+        //   {
+        //     loader: 'file-loader', // 路径返回
+        //     options: {
+        //       name: '[name].[ext]',
+        //       outputPath: './image',
+        //       limit: 1024 * 10,
+        //     },
+        //   },
+        // ],
       },
       {
         test: /\.woff2$/,
@@ -95,8 +93,8 @@ module.exports = {
       scriptLoading: 'blocking',
     }),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].[chunkhash:4].css',
-      chunkFilename: '[name].chunk.css'
+      filename: 'css/[name].[contenthash:4].css',
+      chunkFilename: '[name].[contenthash:4].css'
     }),
     new CssMinimizerPlugin(),
     new CopyWebpackPlguin({
