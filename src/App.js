@@ -4,7 +4,7 @@ import router from './router';
 import './index';
 
 const App = () => {
-      console.log('ok')
+  console.log('ok')
   return (
     <Router>
       {router.getRouter()}
