@@ -6,7 +6,8 @@
   "scripts": {
     "start": "env-cmd -f .env.development node ./server/index",
     "build": "env-cmd -f .env.production webpack --config ./build/webpack.prod.js",
-    "lint": "eslint --ext .js --ext .jsx src --fix"
+    "lint": "eslint --ext .js --ext .jsx src --fix",
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {
@@ -40,7 +41,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "husky": "^7.0.2",
-    "lint-staged": "^11.1.2",
+    "lint-staged": "^11.2.3",
     "optimize-css-assets-webpack-plugin": "^6.0.1",
     "postcss": "^8.3.5",
     "postcss-loader": "^6.1.1",
