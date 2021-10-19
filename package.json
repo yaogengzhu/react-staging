@@ -6,19 +6,8 @@
   "scripts": {
     "start": "env-cmd -f .env.development node ./server/index",
     "build": "env-cmd -f .env.production webpack --config ./build/webpack.prod.js",
-    "lint": "eslint --ext .js --ext .jsx src --fix",
+    "lint": "eslint --fix --ext .js --ext .jsx src",
     "prepare": "husky install"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,tsx}": [
-      "eslint --fix",
-      "git add"
-    ]
   },
   "author": "yaogengzhu",
   "license": "ISC",
