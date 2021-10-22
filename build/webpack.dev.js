@@ -18,9 +18,8 @@ module.exports = merge(webpacBaseConfig, {
     historyApiFallback: true, // 处理BowerRouter
     compress: true,
     proxy: {
-      '/customerAdmin': { // 代理名字
+      [process.env.REACT_APP_FILTER_URL]: { // 代理名字
         target: process.env.REACT_APP_TARGETURL,
-        pathRewrite: { '^/customerAdmin': '' },
         changeOrigin: true
       }
     },
