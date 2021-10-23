@@ -1,13 +1,17 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import router from './router';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './app/Home';
+import Login from './app/Login';
 import './index';
 
 const App = () => {
-  console.log('ok')
+  console.log('ok');
   return (
     <Router>
-      {router.getRouter()}
+      <Switch>
+        <Route path="/login" component={Login}></Route>
+        <Route path="/home" component={Home}></Route>
+      </Switch>
     </Router>
   );
 };

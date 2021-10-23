@@ -1,20 +1,29 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { HashRouter  as Router, Switch, Route, Redirect } from 'react-router-dom';
+// import { Switch, Route, Redirect } from 'react-router';
 import Tabs from '@/components/Tabs';
-import { remote } from '../../api/index';
 import './index.less';
+import HomeIndex from './HomeIndex/index';
+import Todo from './Todo/index';
+import Message from './Message/index';
+import PersonCenter from './personCenter/index';
 
 const classPrefix = 'bnq-home';
-const Home = () => {
-  useEffect(() => {
-    remote.post('/apis/common/login.do');
-    // console.log(post)
-  }, []);
+export default function Home() {
   return (
     <div className={`${classPrefix}-page`}>
-      <div className={`${classPrefix}-container`}></div>
-      <Tabs pathname="/home" />
+      <Router>
+        <div className={`${classPrefix}-container`}>
+          <Switch>
+            <Route path="/home/index" component={HomeIndex} />
+            <Route path="/home/todo" component={Todo} />
+            <Route path="/home/message" component={Message} />
+            <Route path="/home/personCenter" component={PersonCenter} />
+            <Redirect path="/home" to="/home/index" />
+          </Switch>
+        </div>
+        <Tabs />
+      </Router>
     </div>
   );
-};
-
-export default Home;
+}

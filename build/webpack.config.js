@@ -19,6 +19,7 @@ module.exports = {
   output: {
     filename: '[name].[contenthash:4].js',
     path: path.resolve(rootDir, 'public'),
+    publicPath: './',
     clean: true, // 清空打包旧文件
   },
   resolve: {
@@ -114,23 +115,23 @@ module.exports = {
     new webpack.DefinePlugin(env.stringified), // 配置环境变量
   ],
   optimization: {
-    splitChunks: { // 分割代码块
-      cacheGroups: { // 缓存组
-        common: {
-          name: 'common',
-          chunks: 'initial',
-          minSize: 2,
-          minChunks: 1, // 用到两次以上
-        },
-        vendor: {
-          name: 'vendor',
-          priority: 1, // 权重
-          test: /node_modules/,
-          chunks: 'initial',
-          minSize: 2,
-          minChunks: 1, // 用到两次以上
-        }
-      }
-    }
+    // splitChunks: { // 分割代码块
+    //   cacheGroups: { // 缓存组
+    //     common: {
+    //       name: 'common',
+    //       chunks: 'initial',
+    //       minSize: 2,
+    //       minChunks: 1, // 用到两次以上
+    //     },
+    //     vendor: {
+    //       name: 'vendor',
+    //       priority: 1, // 权重
+    //       test: /node_modules/,
+    //       chunks: 'initial',
+    //       minSize: 2,
+    //       minChunks: 1, // 用到两次以上
+    //     }
+    //   }
+    // }
   }
 }
