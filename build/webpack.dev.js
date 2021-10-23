@@ -15,12 +15,11 @@ module.exports = merge(webpacBaseConfig, {
     stats: 'errors-only',
     useLocalIp: true,
     disableHostCheck: true, // Invalid Host header 解决打开自定义环境下报错的处理
-    historyApiFallback: true, // 处理BowerRouter
+    // historyApiFallback: true, // 处理BowerRouter
     compress: true,
     proxy: {
-      '/customerAdmin': { // 代理名字
+      [process.env.REACT_APP_FILTER_URL]: { // 代理名字
         target: process.env.REACT_APP_TARGETURL,
-        pathRewrite: { '^/customerAdmin': '' },
         changeOrigin: true
       }
     },

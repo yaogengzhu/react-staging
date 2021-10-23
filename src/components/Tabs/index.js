@@ -1,31 +1,32 @@
 import React from 'react';
 import { TabBar } from 'antd-mobile';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { AppOutline, MessageOutline, UnorderedListOutline, UserOutline } from 'antd-mobile-icons';
 
 const classPrefix = 'bnq-tabs';
-const Tabs = (props) => {
-  const { pathname } = props;
+const Tabs = () => {
   const history = useHistory();
+  const location = useLocation();
+  const { pathname } = location;
 
   const tabs = [
     {
-      key: '/home',
+      key: '/home/index',
       title: '首页',
       icon: <AppOutline />,
     },
     {
-      key: '/todo',
+      key: '/home/todo',
       title: '我的待办',
       icon: <UnorderedListOutline />,
     },
     {
-      key: '/message',
+      key: '/home/message',
       title: '我的消息',
       icon: <MessageOutline />,
     },
     {
-      key: '/personCenter',
+      key: '/home/personCenter',
       title: '个人中心',
       icon: <UserOutline />,
     },

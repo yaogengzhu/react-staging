@@ -13,18 +13,20 @@ module.exports = {
   mode: 'none',
   target: 'web',
   entry: {
+    index: path.resolve(rootDir, 'template/js/index.js'),
     app: path.resolve(rootDir, 'src/index.js')
   },
   output: {
-    filename: '[name].[chunkhash:4].js',
+    filename: '[name].[contenthash:4].js',
     path: path.resolve(rootDir, 'public'),
+    publicPath: './',
     clean: true, // 清空打包旧文件
   },
   resolve: {
     alias: {
       '@': path.resolve(rootDir, 'src')
     },
-    extensions: ['.js', '.json', '.jsx'],
+    extensions: ['.js', '.jsx', '.json', '.css', '.less'],
   },
   module: {
     rules: [
@@ -48,15 +50,9 @@ module.exports = {
         test: /\.css$/i,
         use: [
           MiniCssExtractPlugin.loader,
-          'css-loader',
           {
-            loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: ['autoprefixer'],
-              },
-            },
-          },
+            loader: 'css-loader',
+          }
         ]
       },
       {
@@ -69,16 +65,20 @@ module.exports = {
       },
       {
         test: /\.(ico|png|jpe?g|gif|svg)$/,
-        use: [
-          {
-            loader: 'file-loader', // 路径返回
-            options: {
-              name: '[name].[ext]',
-              outputPath: './image',
-              limit: 1024 * 10,
-            },
-          },
-        ],
+        type: 'asset/resource',
+        generator: {
+          filename: 'image/[hash:4].[name][ext]',
+        },
+        // use: [
+        //   {
+        //     loader: 'file-loader', // 路径返回
+        //     options: {
+        //       name: '[name].[ext]',
+        //       outputPath: './image',
+        //       limit: 1024 * 10,
+        //     },
+        //   },
+        // ],
       },
       {
         test: /\.woff2$/,
@@ -94,8 +94,8 @@ module.exports = {
       scriptLoading: 'blocking',
     }),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].[chunkhash:4].css',
-      chunkFilename: '[name].chunk.css'
+      filename: 'css/[name].[contenthash:4].css',
+      chunkFilename: '[name].[contenthash:4].css'
     }),
     new CssMinimizerPlugin(),
     new CopyWebpackPlguin({
@@ -115,23 +115,23 @@ module.exports = {
     new webpack.DefinePlugin(env.stringified), // 配置环境变量
   ],
   optimization: {
-    splitChunks: { // 分割代码块
-      cacheGroups: { // 缓存组
-        common: {
-          name: 'common',
-          chunks: 'initial',
-          minSize: 2,
-          minChunks: 1, // 用到两次以上
-        },
-        vendor: {
-          name: 'vendor',
-          priority: 1, // 权重
-          test: /node_modules/,
-          chunks: 'initial',
-          minSize: 2,
-          minChunks: 1, // 用到两次以上
-        }
-      }
-    }
+    // splitChunks: { // 分割代码块
+    //   cacheGroups: { // 缓存组
+    //     common: {
+    //       name: 'common',
+    //       chunks: 'initial',
+    //       minSize: 2,
+    //       minChunks: 1, // 用到两次以上
+    //     },
+    //     vendor: {
+    //       name: 'vendor',
+    //       priority: 1, // 权重
+    //       test: /node_modules/,
+    //       chunks: 'initial',
+    //       minSize: 2,
+    //       minChunks: 1, // 用到两次以上
+    //     }
+    //   }
+    // }
   }
 }

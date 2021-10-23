@@ -120,7 +120,7 @@ module.exports = {
     'func-names': 0,
     // 文件末尾强制换行
     'eol-last': 2,
-    indent: ['error', 2],
+    indent: ['error', 2, { "SwitchCase": 1 }],
     // 要求或禁止在函数标识符和其调用之间有空格
     'func-call-spacing': 2,
     // 强制在对象字面量的属性中键和值之间使用一致的间距
@@ -389,7 +389,7 @@ module.exports = {
     // 防止在React组件定义中丢失props验证
     'react/prop-types': 0,
     // 使用JSX时防止丢失React
-    'react/react-in-jsx-scope': 2,
+    'react/react-in-jsx-scope': 0,
     // 防止没有children的组件的额外结束标签
     'react/self-closing-comp': 0,
     // 禁止不必要的bool转换
