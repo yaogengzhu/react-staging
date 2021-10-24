@@ -12,7 +12,7 @@ const logger = {
     }
     console.log(`
             ${chalk.bold('Access URLs:')}${divider}
-            Localhost: ${chalk.magenta(`${process.env.REACT_APP_SERVER_DOMAIN}:${port}`)}
+            Localhost: ${chalk.magenta(`${process.env.REACT_APP_SERVER_DOMAIN}`)}
             本地IP地址: ${chalk.magenta(`http://${ip.address()}:${port}`) +
                 (tunnelStarted ? `\n    Proxy: ${chalk.magenta(tunnelStarted)}` : '')}
             ${divider}

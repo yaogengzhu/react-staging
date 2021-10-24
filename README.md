@@ -37,8 +37,7 @@
 | style    | 代码格式修改, 注意不是 css 修改                          |
 | test     | 测试用例修改                                           |
 
-总结：commit like this
-    1，commit -m 'feact(home): 航空母舰上线'
-    2，commit -m 'styles(home): 导航颜色调整'
-    3，commit -m 'fix(home): 登陆白屏问题修复'
-    4，commit -m 'docs(home): 组建丰富，添加XX组建'
+**使用示例**
+```bash
+git commit -m 'feact(home): 航空母舰上线'  # 类型: 描述
+```

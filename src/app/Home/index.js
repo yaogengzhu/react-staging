@@ -1,12 +1,25 @@
 import React from 'react';
 import { HashRouter  as Router, Switch, Route, Redirect } from 'react-router-dom';
-// import { Switch, Route, Redirect } from 'react-router';
 import Tabs from '@/components/Tabs';
+import Loadable from 'react-loadable';
+import { Loading } from 'antd-mobile';
+const HomeIndex = Loadable({
+  loader: () => import('./HomeIndex/index'),
+  loading: Loading,
+});
+const Todo = Loadable({
+  loader: () => import('./Todo/index'),
+  loading: Loading,
+});
+const Message = Loadable({
+  loader: () => import('./Message/index'),
+  loading: Loading,
+});
+const PersonCenter = Loadable({
+  loader: () => import('./personCenter/index'),
+  loading: Loading,
+});
 import './index.less';
-import HomeIndex from './HomeIndex/index';
-import Todo from './Todo/index';
-import Message from './Message/index';
-import PersonCenter from './personCenter/index';
 
 const classPrefix = 'bnq-home';
 export default function Home() {
