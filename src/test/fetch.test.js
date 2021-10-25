@@ -57,3 +57,22 @@ test('await-方式测试异步', async () => {
     },
   });
 });
+
+test('await-方式测试异步1', async () => {
+  const response = await fetchData1();
+  expect(response.data).toEqual({
+    success: true,
+  });
+});
+
+/**
+ * 异步错误的方式
+ */
+test('await-方式测试异步1', async () => {
+  // expect.assertions(1); // 必须执行一次
+  try {
+    await fetchData1();
+  } catch (e) {
+    // console.log(e);
+  }
+});
