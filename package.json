@@ -7,7 +7,8 @@
     "start": "env-cmd -f .env.development node ./server/index",
     "build": "env-cmd -f .env.production webpack --config ./build/webpack.prod.js",
     "lint": "eslint --fix --ext .js --ext .jsx src",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "jest"
   },
   "author": "yaogengzhu",
   "license": "ISC",
@@ -32,6 +33,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "husky": "^7.0.2",
+    "jest": "^27.3.1",
     "lint-staged": "^11.2.3",
     "optimize-css-assets-webpack-plugin": "^6.0.1",
     "postcss": "^8.3.5",
