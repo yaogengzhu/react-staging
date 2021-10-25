@@ -32,9 +32,10 @@ const Tabs = () => {
     },
   ];
 
-  const onChange = (pathname) => {
+  const onChange = (name) => {
+    if (pathname === name) return;
     history.push({
-      pathname,
+      pathname: name,
     });
   };
   return (

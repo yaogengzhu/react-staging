@@ -3,6 +3,7 @@ module.exports = {
     browser: true,
     commonjs: true,
     es6: true,
+    jest: true,
   },
   parser: 'babel-eslint',
   extends: ['eslint:recommended', 'plugin:react/recommended'],
@@ -34,14 +35,14 @@ module.exports = {
   },
   settings: {
     react: {
-        version: '17.0.2',
+      version: '17.0.2',
     },
   },
   /**
-     * "off" 或 0 - 关闭规则
-     * "warn" 或 1 - 开启规则，使用警告级别的错误：warn (不会导致程序退出),
-     * "error" 或 2 - 开启规则，使用错误级别的错误：error (当被触发的时候，程序会退出)
-     */
+   * "off" 或 0 - 关闭规则
+   * "warn" 或 1 - 开启规则，使用警告级别的错误：warn (不会导致程序退出),
+   * "error" 或 2 - 开启规则，使用错误级别的错误：error (当被触发的时候，程序会退出)
+   */
   rules: {
     'no-cond-assign': 2,
     'no-console': [
@@ -66,7 +67,8 @@ module.exports = {
     'no-extra-parens': 0,
 
     // 强制所有控制语句使用一致的括号风格
-    curly: [2, 'all'],
+    // curly: [2, 'all'],
+    curly: 'off',
     // 禁止 catch 子句的参数与外层作用域中的变量同名
     'no-catch-shadow': 0,
     // 不允许标签与变量同名
@@ -120,7 +122,7 @@ module.exports = {
     'func-names': 0,
     // 文件末尾强制换行
     'eol-last': 2,
-    indent: ['error', 2, { "SwitchCase": 1 }],
+    indent: ['error', 2, { SwitchCase: 1 }],
     // 要求或禁止在函数标识符和其调用之间有空格
     'func-call-spacing': 2,
     // 强制在对象字面量的属性中键和值之间使用一致的间距
@@ -409,4 +411,4 @@ module.exports = {
     // 禁止未使用的变量
     'no-unused-vars': ['error', { vars: 'all', args: 'after-used', ignoreRestSiblings: false }],
   },
-}
+};

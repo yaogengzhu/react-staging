@@ -1,24 +1,10 @@
 import React from 'react';
-import { HashRouter  as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Tabs from '@/components/Tabs';
-import Loadable from 'react-loadable';
-import { Loading } from 'antd-mobile';
-const HomeIndex = Loadable({
-  loader: () => import('./HomeIndex/index'),
-  loading: Loading,
-});
-const Todo = Loadable({
-  loader: () => import('./Todo/index'),
-  loading: Loading,
-});
-const Message = Loadable({
-  loader: () => import('./Message/index'),
-  loading: Loading,
-});
-const PersonCenter = Loadable({
-  loader: () => import('./personCenter/index'),
-  loading: Loading,
-});
+const HomeIndex = React.lazy(() => import(/* webpackChunkName HomeIndex */ './HomeIndex'));
+const Todo = React.lazy(() => import(/* webpackChunkName Todo */ './Todo'));
+const Message = React.lazy(() => import(/* webpackChunkName Message */ './Message'));
+const PersonCenter = React.lazy(() => import(/* webpackChunkName PersonCenter */ './PersonCenter'));
 import './index.less';
 
 const classPrefix = 'bnq-home';
