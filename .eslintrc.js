@@ -67,7 +67,8 @@ module.exports = {
     'no-extra-parens': 0,
 
     // 强制所有控制语句使用一致的括号风格
-    curly: [2, 'all'],
+    // curly: [2, 'all'],
+    curly: 'off',
     // 禁止 catch 子句的参数与外层作用域中的变量同名
     'no-catch-shadow': 0,
     // 不允许标签与变量同名
