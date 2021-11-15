@@ -128,8 +128,6 @@ class Http {
 
   /**
    * @Description: 打开传进来的域名，并附带相应参数，主要涉及到导出业务
-   * @author wangfajing
-   * @date 2019-05-13
    */
   openGet = (url, data) => {
     let sendURL = `${this.genDomainForEnv('default')}${url}`;
